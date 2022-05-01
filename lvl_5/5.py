@@ -1,0 +1,14 @@
+import urllib.parse
+import urllib.request
+
+url = "http://127.0.0.1:8082/"
+header={"x-api-key" : 'tweetbotkeyv1'}
+post_param = urllib.parse.urlencode({
+                    'user' : 'tweetbotuser',
+           'status-update' : 'alientest'
+          }).encode('UTF-8')
+
+req = urllib.request.Request(url, post_param, header)
+response = urllib.request.urlopen(req)
+
+print(response.read())
